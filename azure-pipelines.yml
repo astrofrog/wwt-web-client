@@ -5,5 +5,5 @@ jobs:
 
   steps:
 
-  - script: C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe .\Html5Sdk.sln
+  - script: 'C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe' .\Html5Sdk.sln
     displayName: Building SDK
