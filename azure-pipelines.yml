@@ -12,10 +12,20 @@ jobs:
       msbuildArchitecture: 'x64'
       clean: true
 
+  - task: NodeTool@0
+
+  - script: npm install
+    workingDirectory: 'webclient'
+    displayName: Install NPM dependencies
+
+  - script: npm install -g grunt-cli
+    workingDirectory: 'webclient'
+    displayName: Installing grunt
+
   - task: Grunt@0
     inputs:
       gruntFile: 'webclient\Gruntfile.js'
-      targets: sdk dist-css dist-js
+      targets: sdk
       workingDirectory: 'webclient'
 
   - task: CopyFiles@2
