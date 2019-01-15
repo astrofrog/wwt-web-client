@@ -8,6 +8,18 @@ jobs:
   - task: MSBuild@1
     inputs:
       solution: 'Html5Sdk.sln'
-      msbuildVersion: '14.0' # Optional. Options: latest, 15.0, 14.0, 12.0, 4.0
-      msbuildArchitecture: 'x64' # Optional. Options: x86, x64
-      clean: true # Optional
+      msbuildVersion: '14.0'
+      msbuildArchitecture: 'x64'
+      clean: true
+
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: 'webclient.sdk'
+      contents: 'wwtsdk.js'
+      targetFolder: $(Build.ArtifactStagingDirectory)
+      cleanTargetFolder: true
+
+  - task: PublishPipelineArtifact@0
+    inputs:
+      artifactName: wwtsdk.js
+      targetPath: $(Build.ArtifactStagingDirectory)
