@@ -12,6 +12,11 @@ jobs:
       msbuildArchitecture: 'x64'
       clean: true
 
+  - task: Grunt@0
+    inputs:
+      targets: sdk dist-css dist-js
+      workingDirectory: 'webclient'
+
   - task: CopyFiles@2
     inputs:
       sourceFolder: 'webclient\sdk'
