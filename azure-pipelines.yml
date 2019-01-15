@@ -1,0 +1,9 @@
+jobs:
+- job: BuildSDK
+  pool:
+    vmImage: vs2017-win2016
+
+  steps:
+
+  - script: C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe .\Html5Sdk.sln
+    displayName: Building SDK
