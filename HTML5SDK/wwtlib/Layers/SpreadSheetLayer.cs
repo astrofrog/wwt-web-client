@@ -1823,6 +1823,21 @@ namespace wwtlib
             }
         }
 
+        private LinearColorMap linearColorMap = null;
+
+
+        internal LinearColorMap LinearColorMap
+        {
+            get { return linearColorMap; }
+            set
+            {
+                if (linearColorMap != value)
+                {
+                    version++;
+                    linearColorMap = value;
+                }
+            }
+        }
 
         private int markerColumn = -1;
 
